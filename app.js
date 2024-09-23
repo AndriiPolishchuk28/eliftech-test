@@ -26,7 +26,7 @@ app.use(morgan("tiny"));
 app.use(cors());
 app.use(express.json());
 
-app.use("/events", eventsRouter);
+app.use("/", eventsRouter);
 // app.use("/api/users", usersRouter);
 
 app.use((_, res) => {

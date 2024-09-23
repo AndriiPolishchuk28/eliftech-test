@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema } from "mongoose";
 import Joi from "joi";
 import { handleSaveError } from "./hooks.js";
 
@@ -17,7 +17,7 @@ export const userSchema = new Schema(
       unique: true,
     },
     birthDate: {
-      type: Date,
+      type: String,
       required: [true, "Date of birth is required"],
     },
     event: {

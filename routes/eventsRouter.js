@@ -11,5 +11,6 @@ eventsRouter.post(
   validateBody(schemas.registerSchema),
   ctrl.userEvent
 );
+eventsRouter.get("/participants/:id", ctrl.getAllParticipants);
 
 export default eventsRouter;

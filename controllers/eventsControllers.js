@@ -30,8 +30,21 @@ const getAllParticipants = async (req, res) => {
   res.send(result);
 };
 
+const findByQuery = async (req, res) => {
+  const { id } = req.params;
+  const { query } = req.query;
+  const result = await events.getParticipants(id);
+  const regex = new RegExp(query, "i");
+
+  const filtered = result.users.filter(
+    (user) => regex.test(user.fullName) || regex.test(user.email)
+  );
+  res.send(filtered);
+};
+
 export default {
   getAllEvents: ctrlWrapper(getAllEvents),
   userEvent: ctrlWrapper(userEvent),
   getAllParticipants: ctrlWrapper(getAllParticipants),
+  findByQuery: ctrlWrapper(findByQuery),
 };

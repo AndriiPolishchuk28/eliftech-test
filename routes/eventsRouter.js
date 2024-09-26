@@ -12,5 +12,6 @@ eventsRouter.post(
   ctrl.userEvent
 );
 eventsRouter.get("/participants/:id", ctrl.getAllParticipants);
+eventsRouter.get("/search/:id", ctrl.findByQuery);
 
 export default eventsRouter;
